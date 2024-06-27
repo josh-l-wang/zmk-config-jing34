@@ -61,13 +61,6 @@
             ;
     };
 
-    encoder: encoder {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-    };
-
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
@@ -129,6 +122,15 @@
 
     /* end soft off feature */
 
+};
+
+encoder: &qdec0 {
+    status = "okay";
+    led-pre = <0>;
+    steps = <80>;
+    pinctrl-0 = <&qdec_default>;
+    pinctrl-1 = <&qdec_sleep>;
+    pinctrl-names = "default", "sleep";
 };
 
 &gpio0 {
