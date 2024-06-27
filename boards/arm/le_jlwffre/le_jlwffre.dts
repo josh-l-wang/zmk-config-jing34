@@ -66,7 +66,12 @@
         a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
-        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder>;
+        triggers-per-rotation = <20>;
     };
 
 //  leds {
@@ -124,10 +129,6 @@
 
     /* end soft off feature */
 
-};
-
-&encoder {
-    status = "okay";
 };
 
 &gpio0 {
