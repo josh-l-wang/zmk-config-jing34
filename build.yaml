@@ -1,2 +1,5 @@
+---
 include:
   - board: le_jlwffre
+  - board: le_jlwffre
+    shield: settings_reset
